@@ -1,15 +1,15 @@
-import React from 'react';
-import './App.css';
-import { Button } from './components/Button';
-import { Input } from './components/Input';
-import {Container } from './components/Container'
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+
 function App() {
+  const [count, setCount] = useState(0)
 
   return (
-    <div className='App'>
-      <Container styles={{border: '1px solid back' ,padding: '1rem'}} />
-    </div>
-  );
+    <>
+    </>
+  )
 }
 
-export default App;
+export default App
