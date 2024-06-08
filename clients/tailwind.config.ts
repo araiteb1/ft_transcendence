@@ -19,6 +19,7 @@ const config: Config = {
       SubMain: '#203844',
       TextColor1: '#C2B287',
       MainButon: '#ECDFDF',
+      red:'#FF7D29',
     },
   },
   plugins: [],

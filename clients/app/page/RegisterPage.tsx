@@ -1,9 +1,9 @@
 import Regitred from "../components/Regitred";
-import Header from "../layout/Header";
+
 const RegisterPage = () => {
     return (
-        <div >
-            <Header />
+        <div className="border border-red h-full">
+           
             <Regitred />
         </div>
     );
