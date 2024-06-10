@@ -29,7 +29,7 @@ const pageLinks = [
 ]
 const Header = () => {
     return(
-        <nav className="flex top-0 left-0 right-0 z-10 bg-SubMain bg-opacity-100 items-center">
+        <nav className="flex top-0 left-0 right-0 z-10 bg-SubMain bg-opacity-100 items-center ">
             <div className="flex flex-wrap items-center justify-between mx-auto py-6  w-[99%]">
                 <Image
                     src={Logo}

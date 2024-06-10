@@ -1,14 +1,14 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 
-const Board: React.FC = () => {
+const SingUpPage: React.FC = () => {
   const playerWidth = 150; // Width of the player div
   const playerHeight = 20; // Height of the player div
   const boardWidth = 400; // Width of the board div
-  const boardHeight = 600; // Height of the board div
+  const boardHeight = 900; // Height of the board div
   const ballSize = 30; // Size of the ball
   const maxBallPositionX = boardWidth - ballSize; // Max horizontal position of the ball
-  const maxBallPositionY = boardHeight - (2.4 * ballSize); // Max vertical position of the ball
+  const maxBallPositionY = boardHeight - (2.1 * ballSize); // Max vertical position of the ball
 
   const [player1Position, setPlayer1Position] = useState<number>(boardWidth - playerWidth); // Start at the far right
   const [player2Position, setPlayer2Position] = useState<number>(0); // Start at the far left
@@ -85,23 +85,45 @@ const Board: React.FC = () => {
   }, [player1Direction, player2Direction, ballDirectionX, ballDirectionY]);
 
   return (
-    <div className="flex relative flex-col board  border-[#553D1E] border-2 rounded-2xl w-[35%] h-[60%] bg-[#CAD2C5] pt-1">
-      <div
-        className="border player player1 bg-[#553D1E] w-[150px] h-[20px] rounded-lg"
-        style={{ transform: `translateX(${player1Position}px)` }}
-      ></div>
-      <div className=' flex absolute inset-x-0 top-[50%] self-center self-ceenter border border-[#553D1E] h-[2px]'>
-      </div>
-      <div
-        className="border ball bg-[#553D1E] w-[30px] h-[30px] rounded-full"
-        style={{ transform: `translate(${ballPositionX}px, ${ballPositionY}px)` }}
-      ></div>
-      <div
-        className="border player player2 absolute inset-x-0 bottom-0 bg-[#553D1E] w-[150px] h-[20px] rounded-lg mb-1"
-        style={{ transform: `translateX(${player2Position}px)` }}
-      ></div>
+    <div className='relative h-full w-full grid grid-cols-3 gap-4 place-items-center'>
+        <div className="flex absolute  flex-col board  border-Component1 border-2 rounded-2xl w-[45%] h-[70%] bg-[#203844] pt-1 self-center">
+          <div
+            className="border player player1 bg-Component1 w-[32%] h-[2%] rounded-lg"
+            style={{ transform: `translateX(${player1Position}px)` }}
+          ></div>
+          <div className=' w-[100%] h-[45%] grid place-items-center'>
+            <div className='border border-Component0 bg-MainButon w-[70%] h-[35%] text-BackGround rounded-3xl '>
+                <p className='m-2'>First Name</p>
+            </div>
+            <div className='border border-Component0 bg-MainButon w-[70%] h-[35%] text-BackGround rounded-3xl '>
+                <p className='m-2'>Last Name</p>
+            </div>
+            <div className='border border-Component0 bg-MainButon w-[70%] h-[35%] text-BackGround rounded-3xl '>
+                <p className='m-2'> Email</p>
+            </div>
+          </div>
+          <div className=' flex absolute inset-x-0 top-[50%] self-center self-ceenter border border-Component1 h-[2px]'>
+          </div>
+          <div
+            className="border ball bg-Component1 w-[30px] h-[30px] rounded-full"
+            style={{ transform: `translate(${ballPositionY}px, ${ballPositionX}px)` }}
+          ></div>
+           <div className=' w-[100%] h-[45%] grid place-items-center'>
+                <div className='border border-Component0 bg-MainButon w-[70%] h-[35%] text-BackGround rounded-3xl '>
+                    <p className='m-2'>passoword</p>
+                </div>
+                <div className='border border-Component0 bg-MainButon w-[70%] h-[35%] text-BackGround rounded-3xl '>
+                    <p className='m-2'>re-password</p>
+                </div>
+                <button className="px-12 py-5 w-full sm:w-fit  mr-7 bg-[#553D1E] rounded-3xl text-[20px]">Sing Up</button>
+          </div>
+          <div
+            className="border player player2 absolute inset-x-0 bottom-0 bg-Component1 w-[32%] h-[2%] rounded-lg mb-1"
+            style={{ transform: `translateX(${player2Position}px)` }}
+          ></div>
+    </div>
     </div>
   );
 };
 
-export default Board;
+export default SingUpPage;

@@ -89,7 +89,8 @@ const Regitred: React.FC = () => {
 
 
     return (
-        <div className="flex  m-[15%]  relative  border-[#C2B287] bg-[#203844] border-2 w-[75%] h-[60%] rounded-lg">
+      
+        <div className="flex  m-[15%]  relative  border-[#C2B287] bg-[#203844] border-2 w-[75%] h-[60%] rounded-3xl">
           
           <div className=" border  bg-[#C2B287] w-[20px] h-[150px] rounded-lg  " 
           style={{ transform: `translateY(${player1Position}px)` }}
