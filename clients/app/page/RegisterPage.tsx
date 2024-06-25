@@ -2,7 +2,7 @@ import Regitred from "../components/Regitred";
 
 const RegisterPage = () => {
     return (
-        <div className="border border-red h-full">
+        <div className=" h-[100%] w-full">
            
             <Regitred />
         </div>

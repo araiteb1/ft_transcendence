@@ -90,12 +90,11 @@ const Regitred: React.FC = () => {
 
     return (
       
-        <div className="flex  m-[15%]  relative  border-[#C2B287] bg-[#203844] border-2 w-[75%] h-[60%] rounded-3xl">
-          
-          <div className=" border  bg-[#C2B287] w-[20px] h-[150px] rounded-lg  " 
+        <div className="flex flex-col m-[15%]  relative  border-[#C2B287] bg-[#203844] border-2 w-[75%] h-[70%] rounded-3xl">
+          <div className=" border  bg-[#C2B287] w-[2.2%] h-[150px] rounded-lg  " 
           style={{ transform: `translateY(${player1Position}px)` }}
           ></div>
-            <div className="  flex  absolute inset-x-5 top-[10%] text-[#FFFFFF] w-[45%] h-[80%] ">
+            <div className="  flex  absolute inset-x-5 top-[10%] text-[#FFFFFF] w-[45%] h-[20%] ">
                   <h1 className=" text-center text-[32px] absolute left-[30%]">Continue With</h1>
                     <button className=" items-center absolute inset-x-40 top-[15%] flex border w-[40px] h-[40px] bg-[#ffffff]">
                       <EmailIcon />

@@ -8,21 +8,15 @@ import ProfilePage from './components/ProfilePage';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col  w-full ">
-       <Header />
-       <ProfilePage/>
-       <ul>
+    <main className="flex min-h-screen flex-col  w-full h-full">
+      <Header />
+       <RegisterPage />
+       {/* <ProfilePage/> */}
+       {/* <ul>
           <li>
             <Link href={"/"}><Layout/></Link>
           </li>
-          <li>
-            <Link href={"/SingUpPage"} >Play</Link>
-          </li>
-          <li>
-            <Link href={"/RegisterPage"} replace >Register</Link>
-          </li>
-
-       </ul>
+       </ul> */}
     </main>
   )
 }

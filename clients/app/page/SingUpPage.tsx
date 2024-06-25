@@ -1,9 +1,43 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useRef,useState, useEffect } from 'react';
+import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
+const PWD_REGEX = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
+// const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const SingUpPage: React.FC = () => {
-  const playerWidth = 150; // Width of the player div
-  const playerHeight = 20; // Height of the player div
+
+  const userRef = useRef<HTMLLinkElement>(null);
+  const errRef = useRef();
+  const [user, setUser] = useState('');
+  const [validFName, setValidFName] = useState(false);
+  const [userFocus, setUserFocus] = useState(false);
+
+
+  const [lName, setlName] = useState('');
+  const [validlName, setValidlName] = useState(false);
+  const [lNameFocus, setlNameFocus] = useState(false);
+
+
+  const [Email, setEmail] = useState('');
+  const [validEmail, setValidEmail] = useState(false);
+  const [EmailFocus, setEmailFocus] = useState(false);
+
+  const [pwd, setPwd] = useState('');
+  const [validPwd, setValidPwd] = useState(false);
+  const [pwdFocus, setPwdFocus] = useState(false);
+
+
+  const [matchpwd, setMatchPwd] = useState('');
+  const [validMatchPwd, setValidMatchPwd] = useState(false);
+  const [matchpwdFocus, setMatchPwdFocus] = useState(false);
+
+
+  const [errMsg, setErrMsg] = useState('');
+  const [success, setSuccess] = useState(false);
+  const playerWidth = 20; // Width of the player div
+  const playerHeight = 120; // Height of the player div
   const boardWidth = 400; // Width of the board div
   const boardHeight = 900; // Height of the board div
   const ballSize = 30; // Size of the ball
@@ -84,22 +118,73 @@ const SingUpPage: React.FC = () => {
     };
   }, [player1Direction, player2Direction, ballDirectionX, ballDirectionY]);
 
+  useEffect(() => {
+    userRef.current?.focus();
+  }, [])
+  useEffect(()=>{
+    const result = USER_REGEX.test(user);
+    console.log(result);
+    console.log(user);
+    setValidFName(result);
+  }, [user])
+
+  useEffect(()=> {
+    const result =PWD_REGEX.test(pwd);
+    console.log(result);
+    console.log(pwd);
+    setValidPwd(result);
+    const match = pwd === matchpwd;
+    setValidMatchPwd(match);
+  }, [pwd, matchpwd])
+
+  useEffect(() => {
+    setErrMsg('');
+  }, [user, pwd, matchpwd])
   return (
-    <div className='relative h-full w-full grid grid-cols-3 gap-4 place-items-center'>
+    <div className='relative h-full w-full grid grid-cols-3 gap-4 place-items-center min-h-screen'>
         <div className="flex absolute  flex-col board  border-Component1 border-2 rounded-2xl w-[45%] h-[70%] bg-[#203844] pt-1 self-center">
           <div
             className="border player player1 bg-Component1 w-[32%] h-[2%] rounded-lg"
             style={{ transform: `translateX(${player1Position}px)` }}
           ></div>
           <div className=' w-[100%] h-[45%] grid place-items-center'>
+              <div className=' border border-Component0 bg-MainButon w-[70%] h-[35%] text-BackGround rounded-3xl '>
+                <form>
+                  {/* <label>
+                    <span className={validFName ? "valid" : "hide"}>
+                          <FontAwesomeIcon icon={faCheck} />
+                    </span>
+                    <span className={validFName || !user ? "hide" : "invalid"}>
+                          <FontAwesomeIcon icon={faTimes} />
+                    </span> */}
+                  {/* </label> */}
+                    <input 
+                                    type="text"
+                                    defaultValue="First Name"
+                                    id="username"
+                                    // ref={userRef}
+                                    autoComplete="off"
+                                    onChange={(e) => setUser(e.target.value)}
+                                    required
+                                    aria-invalid={validFName ? "false" : "true"}
+                                    aria-describedby="uidnote"
+                                    onFocus= {() => setUserFocus(true)}
+                                    onBlur= {()=> setUserFocus(false)}
+                                    />
+                    {/* <p id="uidnote" className={userFocus && user && !validFName ? "instructions" : "offscreen"}>
+                      <FontAwesomeIcon  icon={faInfoCircle} />
+                      4 to 24 characters.<br/>
+                      Must begin with a letter.<br/>
+                      Letters, numbers, underscores, hyphens, allowed.
+                    </p> */}
+                  </form>
+              </div>
+
             <div className='border border-Component0 bg-MainButon w-[70%] h-[35%] text-BackGround rounded-3xl '>
-                <p className='m-2'>First Name</p>
+                <p className='m-2'><input type="Last Name " defaultValue='Last Name' /> </p>
             </div>
             <div className='border border-Component0 bg-MainButon w-[70%] h-[35%] text-BackGround rounded-3xl '>
-                <p className='m-2'>Last Name</p>
-            </div>
-            <div className='border border-Component0 bg-MainButon w-[70%] h-[35%] text-BackGround rounded-3xl '>
-                <p className='m-2'> Email</p>
+                <p className='m-2'> <input type="Email" defaultValue='Email' /></p>
             </div>
           </div>
           <div className=' flex absolute inset-x-0 top-[50%] self-center self-ceenter border border-Component1 h-[2px]'>
@@ -110,10 +195,10 @@ const SingUpPage: React.FC = () => {
           ></div>
            <div className=' w-[100%] h-[45%] grid place-items-center'>
                 <div className='border border-Component0 bg-MainButon w-[70%] h-[35%] text-BackGround rounded-3xl '>
-                    <p className='m-2'>passoword</p>
+                    <p className='m-2'><input type="passoword" defaultValue='passoword' /></p>
                 </div>
                 <div className='border border-Component0 bg-MainButon w-[70%] h-[35%] text-BackGround rounded-3xl '>
-                    <p className='m-2'>re-password</p>
+                    <p className='m-2'><input type="re-password" defaultValue='re-password'/></p>
                 </div>
                 <button className="px-12 py-5 w-full sm:w-fit  mr-7 bg-[#553D1E] rounded-3xl text-[20px]">Sing Up</button>
           </div>
