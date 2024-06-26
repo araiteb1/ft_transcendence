@@ -150,14 +150,6 @@ const SingUpPage: React.FC = () => {
           <div className=' w-[100%] h-[45%] grid place-items-center'>
               <div className=' border border-Component0 bg-MainButon w-[70%] h-[35%] text-BackGround rounded-3xl '>
                 <form>
-                  {/* <label>
-                    <span className={validFName ? "valid" : "hide"}>
-                          <FontAwesomeIcon icon={faCheck} />
-                    </span>
-                    <span className={validFName || !user ? "hide" : "invalid"}>
-                          <FontAwesomeIcon icon={faTimes} />
-                    </span> */}
-                  {/* </label> */}
                     <input 
                                     type="text"
                                     defaultValue="First Name"
@@ -171,12 +163,6 @@ const SingUpPage: React.FC = () => {
                                     onFocus= {() => setUserFocus(true)}
                                     onBlur= {()=> setUserFocus(false)}
                                     />
-                    {/* <p id="uidnote" className={userFocus && user && !validFName ? "instructions" : "offscreen"}>
-                      <FontAwesomeIcon  icon={faInfoCircle} />
-                      4 to 24 characters.<br/>
-                      Must begin with a letter.<br/>
-                      Letters, numbers, underscores, hyphens, allowed.
-                    </p> */}
                   </form>
               </div>
 

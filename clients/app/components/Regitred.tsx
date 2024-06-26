@@ -1,7 +1,8 @@
 "use client";
-import {EmailIcon}from "../icons/Icons";
+import { EmailIcon }from "../icons/Icons";
 import React, { useState, useEffect } from 'react';
-
+import axios from "axios"
+import Link from "next/link";
 
 const Regitred: React.FC = () => {
   const playerWidth = 20; // Width of the player div
@@ -88,31 +89,42 @@ const Regitred: React.FC = () => {
 
 
 
+  const [email,setEmail] =useState('')
+  const [password,setPwd] =useState('')
+
     return (
+
       
-        <div className="flex flex-col m-[15%]  relative  border-[#C2B287] bg-[#203844] border-2 w-[75%] h-[70%] rounded-3xl">
+        <div className="flex flex-col m-[15%]  relative  border-[#C2B287] bg-[#203844] border-2 w-[75%] h-[50%] rounded-3xl">
           <div className=" border  bg-[#C2B287] w-[2.2%] h-[150px] rounded-lg  " 
           style={{ transform: `translateY(${player1Position}px)` }}
           ></div>
-            <div className="  flex  absolute inset-x-5 top-[10%] text-[#FFFFFF] w-[45%] h-[20%] ">
+            <div className="  flex  absolute inset-x-10 top-[10%] text-[#FFFFFF] w-[45%] h-[20%] ">
                   <h1 className=" text-center text-[32px] absolute left-[30%]">Continue With</h1>
-                    <button className=" items-center absolute inset-x-40 top-[15%] flex border w-[40px] h-[40px] bg-[#ffffff]">
+                    <button className=" items-center absolute inset-x-40 top-[60%] flex border w-[40px] h-[40px] bg-[#ffffff]">
                       <EmailIcon />
                     </button>
-                    <button className=" absolute inset-x-80 top-[15%] flex border w-[40px] h-[40px] bg-[#ffffff] rounded-full">
+                    <button className=" absolute inset-x-60 top-[60%] flex border w-[40px] h-[40px] bg-[#ffffff] rounded-full">
                       <p className=" text-[#181818]  items-center text-[30px] t">42</p>
                     </button>
-                  <h2 className="absolute inset-x-44 top-[25%] text-center text-[32px] self-center left-[30%]"> Or</h2>
-                  <div className=" absolute inset-x-20 top-[40%] border bg-MainButon w-[60%] h-[8%] self-center rounded-3xl text-[#181818] m-2">
-                    <p className="m-2">email</p>
+                  <h2 className="absolute inset-x-40 top-[60%] text-center text-[32px] self-center left-[30%]"> Or</h2>
+                  <div className=" absolute inset-x-20 top-[120%] border bg-MainButon w-[60%] h-[30%] self-center rounded-3xl text-[#181818] m-2">
+                    <form action="POST">
+                        <p className="m-2"><input type="email" onChange={(e) => {setEmail(e.target.value)}} placeholder="Email" name="" id="" /></p>
+
+                    </form>
                     </div>
-                  <div className="absolute inset-x-20 top-[53%] border bg-MainButon w-[60%] h-[8%] self-center rounded-3xl  text-[#181818] m-2">
-                    <p className="m-2">password</p></div>
+                  <div className="absolute inset-x-20 top-[180%] border bg-MainButon w-[60%] h-[30%] self-center rounded-3xl  text-[#181818] m-2">
+                      <form action="POST">
+                        <p className="m-2"><input type="password" onChange={(e) => {setPwd(e.target.value)}} placeholder="Password" name="" id="" /></p>
+                        <Link href="/HomePage"><button className="px-7 py-3 w-full sm:w-fit rounded-lg bg-[#553D1E] text-[15px] m-20" >submit</button></Link>
+                      </form>
+                  </div>
             </div> 
           <div className=" border absolute inset-y-0 left-[50%] border-[#C2B287] w-[2px] h-full"></div>
           <div className="flex-col w-[45%] h-[full] absolute inset-y-0 right-5 top-[25%] items-center justify-center">
               <p className="text-[#FFFFFF] text-[40px] text-center "> Don't have an account ?</p>
-              <button className="px-12 py-5 w-full sm:w-fit rounded-lg bg-[#553D1E] text-[25px] m-20">Sing Up</button>
+              <Link href="/SingUpPage" ><button className="px-12 py-5 w-full sm:w-fit rounded-lg bg-[#553D1E] text-[25px] m-20">Sing Up</button></Link>
           </div>
             <div
               className="border ball bg-[#553D1E] w-[30px] h-[30px] rounded-full"

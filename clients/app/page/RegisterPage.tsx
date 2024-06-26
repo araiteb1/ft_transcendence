@@ -2,8 +2,7 @@ import Regitred from "../components/Regitred";
 
 const RegisterPage = () => {
     return (
-        <div className=" h-[100%] w-full">
-           
+        <div className="min-h-screen h-4">
             <Regitred />
         </div>
     );
