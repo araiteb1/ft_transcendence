@@ -11,7 +11,7 @@ export default  function Header  ()  {
                             <Link to="../Pages/AboutPage" > About </Link>
                             <Link to="../Pages/ContactPage" > Contact </Link>
                             <Link to="../Pages/ProfilPage" > Profile </Link>
-                            <Link to="../Pages/RegisterPage" > Register </Link>
+                            <Link to="../Pages/RegisterPage" ><button className= " px-9 py-2 w-full sm:w-fit  inset-y-5 rounded-lg  bg-[#553D1E]  hover:bg-Component1 hover:text-extraColor"> Register </button></Link>
                        </div>
                 </nav>
             </header>
