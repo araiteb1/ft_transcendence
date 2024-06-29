@@ -10,6 +10,8 @@ import RegisterPage from './Pages/RegisterPage';
 import Layout from './Layout/Layout';
 import LandingPage from './Pages/LandingPage';
 import SingUpPage from './Pages/SingUpPage';
+import JouxPage from './Pages/JouxPage';
+import ChatPage from './Pages/ChatPage';
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
             <Route path="/" element ={<LandingPage />} />
             <Route path="/Pages/SingUpPage" element ={<SingUpPage />} />
             <Route path="/Pages/HomePage" element ={<HomePage />} />
+            <Route path="/Pages/JouxPage" element ={<JouxPage />} />
+            <Route path="/Pages/ChatPage" element ={<ChatPage />} />
             <Route path="/Pages/AboutPage" element ={<AboutPage />} />
             <Route path="/Pages/ContactPage" element ={<ContactPage />} />
             <Route path="/Pages/ProfilPage" element ={<ProfilPage />} />
