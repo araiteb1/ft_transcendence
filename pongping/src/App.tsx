@@ -12,6 +12,11 @@ import LandingPage from './Pages/LandingPage';
 import SingUpPage from './Pages/SingUpPage';
 import JouxPage from './Pages/JouxPage';
 import ChatPage from './Pages/ChatPage';
+import Rank from './Components/Rank';
+import Stats from './Components/Stats';
+import MatchHistory from './Components/MatchHistory';
+import OverView from './Components/OverView';
+import Avievement from './Components/Avievement';
 
 
 function App() {
@@ -30,6 +35,11 @@ function App() {
             <Route path="/Pages/ContactPage" element ={<ContactPage />} />
             <Route path="/Pages/ProfilPage" element ={<ProfilPage />} />
             <Route path="/Pages/RegisterPage" element ={<RegisterPage />} />
+            <Route path="/Components/Rank" element={<Rank/>} />
+            <Route path="/Components/Stats" element={<Stats/>} />
+            <Route path="/Components/MatchHistory" element={<MatchHistory />} />
+            <Route path="/Components/OverView" element={<OverView/>} />
+            <Route path="/Components/Avievement" element={<Avievement/>} />
           </Routes>
       </BrowserRouter>
     </main>
