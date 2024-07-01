@@ -2,7 +2,7 @@ import {IconChatbox, IconGameController, IconHome4Fill, IconLogin, IconNotificat
 import {Link} from "react-router-dom"
 export default function Navbarp () {
     return(
-        <div className="flex flex-col h-full w-full">
+        <div className="flex   w-full">
 
             <div className=" flex justify-center items-center border border-TextColor1 w-full h-[50px]  bg-SubMain ">
                 <div className="flex   border justify-around h-[65%] w-[25%] border-SubMain rounded-full hover:bg-extraColor hover:shadow-lg hover:justify-end">
